@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MovieLab24.Data.Movies>
+
+@{
+    ViewData["Title"] = "ListMovies";
+}
+
+<h1>Movie List</h1>
+<div>
+    <a asp-action="Index">Back to Menu</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+
+                <td>
+                    <a asp-action="CheckOut" asp-route-id="@item.Id">Checkout</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

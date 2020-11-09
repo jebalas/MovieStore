@@ -1,0 +1,12 @@
+﻿@model MovieLab24.Data.CheckedOutMovies
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+<div>
+    <h4> has been checked out and is due on @Model.DueDate </h4>
+</div>
+<div>
+    <a asp-controller="Movies" asp-action="ListMovies">Back to Movie List</a> 
+</div>

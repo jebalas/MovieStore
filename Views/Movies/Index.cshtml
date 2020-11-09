@@ -1,0 +1,13 @@
+@model IEnumerable<MovieLab24.Data.Movies>
+
+@{ ViewData["Title"] = "Index"; }
+
+<h1>Welcome to the Movie Store</h1>
+<h4>Menu</h4>
+<p>
+    <a asp-action="ListMovies">Movie List</a> |
+    <a asp-action="Search">Search Movies</a> |
+    <a asp-action="Create">Register a Movie</a>
+
+</p>
+
