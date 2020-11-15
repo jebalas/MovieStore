@@ -10,8 +10,8 @@ using MovieLab24.Data;
 namespace MovieLab24.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201108165336_CreateIdentitySchema")]
-    partial class CreateIdentitySchema
+    [Migration("20201113225936_InitialMigrations")]
+    partial class InitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -164,12 +164,10 @@ namespace MovieLab24.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -206,12 +204,10 @@ namespace MovieLab24.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -219,6 +215,215 @@ namespace MovieLab24.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("MovieLab24.Data.CheckedOutMovies", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DueDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MovieID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("CheckedOutMovies");
+                });
+
+            modelBuilder.Entity("MovieLab24.Data.Movies", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Actors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Directors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Genre")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<double>("Runtime")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Year")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Movies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Actors = "Sacha Baron Cohen",
+                            Directors = "Larry Charles",
+                            Genre = "Comedy",
+                            Runtime = 84.0,
+                            Title = "Borat",
+                            Year = "2006"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Actors = "John Cleese",
+                            Directors = "Terry Gilliam, Terry Jones",
+                            Genre = "Comedy",
+                            Runtime = 92.0,
+                            Title = "Monty Python and the Holy Grail",
+                            Year = "1975"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Actors = "Reese Witherspoon",
+                            Directors = "Robert Luketic",
+                            Genre = "Comedy",
+                            Runtime = 96.0,
+                            Title = "Legally Blonde",
+                            Year = "2001"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Actors = "Ansel Elgort, Kevin Spacey",
+                            Directors = "Edgar Wright",
+                            Genre = "Action",
+                            Runtime = 113.0,
+                            Title = "Baby Driver",
+                            Year = "2017"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Actors = "Robert Downey Jr, Chris Evans",
+                            Directors = "Joss Whedon",
+                            Genre = "Action",
+                            Runtime = 143.0,
+                            Title = "The Avengers",
+                            Year = "2012"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Actors = "John Travolta, Samuel Jackson, Uma Thurman",
+                            Directors = "Quentin Tarantino",
+                            Genre = "Action",
+                            Runtime = 154.0,
+                            Title = "Pulp Fiction",
+                            Year = "1994"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Actors = "Judith O'Dea, Duane Jones",
+                            Directors = "George Romero",
+                            Genre = "Horror",
+                            Runtime = 96.0,
+                            Title = "Night of the Living Dead",
+                            Year = "1968"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Actors = "Jodie Foster, Anthony Hopkins",
+                            Directors = "Jonathan Demme",
+                            Genre = "Horror",
+                            Runtime = 118.0,
+                            Title = "Silence of the Lambs",
+                            Year = "1991"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Actors = "Essie Davis, Noah Wiseman",
+                            Directors = "Jennifer Kent",
+                            Genre = "Horror",
+                            Runtime = 94.0,
+                            Title = "The Babadook",
+                            Year = "2014"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Actors = "Kevin Spacey, Annette Bening",
+                            Directors = "Sam Mendes",
+                            Genre = "Drama",
+                            Runtime = 122.0,
+                            Title = "American Beauty",
+                            Year = "1996"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Actors = "Tom Hanks",
+                            Directors = "Robert Zemeckis",
+                            Genre = "Drama",
+                            Runtime = 142.0,
+                            Title = "Forrest Gump",
+                            Year = "1994"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Actors = "Dev Patel, Freida Pinto",
+                            Directors = "Danny Boyle",
+                            Genre = "Drama",
+                            Runtime = 120.0,
+                            Title = "Slumdog Millionaire",
+                            Year = "2008"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Actors = "Chris Evans, Song Kang-ho",
+                            Directors = "Bong Joon-ho",
+                            Genre = "SciFi",
+                            Runtime = 126.0,
+                            Title = "Snowpiercer",
+                            Year = "2013"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Actors = "Natalie Portman, Hugo Weaving",
+                            Directors = "James McTeigue",
+                            Genre = "SciFi",
+                            Runtime = 133.0,
+                            Title = "V for Vendetta",
+                            Year = "2006"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Actors = "Charlton Heston",
+                            Directors = "Richard Fleischer",
+                            Genre = "SciFi",
+                            Runtime = 97.0,
+                            Title = "Soylent Green",
+                            Year = "1973"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -270,6 +475,19 @@ namespace MovieLab24.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MovieLab24.Data.CheckedOutMovies", b =>
+                {
+                    b.HasOne("MovieLab24.Data.Movies", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID");
                 });
 #pragma warning restore 612, 618
         }

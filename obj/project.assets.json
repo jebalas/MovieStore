@@ -9202,7 +9202,7 @@
       "outputPath": "/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Jennifer/.nuget/NuGet/NuGet.Config"
+        "/Users/Jennifer/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

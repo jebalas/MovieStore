@@ -165,6 +165,12 @@
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/MovieLab24.TagHelpers.output.cache
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/MovieLab24.RazorCoreGenerate.cache
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewStart.cshtml.g.cs
+/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/CheckedOutMoviesView.cshtml.g.cs
+/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Checkout.cshtml.g.cs
+/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Create.cshtml.g.cs
+/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Delete.cshtml.g.cs
+/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Index.cshtml.g.cs
+/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Result.cshtml.g.cs
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/Movies/CheckOut.cshtml.g.cs
@@ -192,7 +198,3 @@
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/MovieLab24.dll
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/MovieLab24.pdb
 /Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/MovieLab24.genruntimeconfig.cache
-/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/MovieLab24.csprojAssemblyReference.cache
-/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Create.cshtml.g.cs
-/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Delete.cshtml.g.cs
-/Users/Jennifer/Projects/MovieLab24/MovieLab24/obj/Debug/netcoreapp3.1/Razor/Views/CheckedOutMovies/Index.cshtml.g.cs

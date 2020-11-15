@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieLab24.Data;
+using Microsoft.AspNetCore.Identity;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MovieLab24.Controllers
 {
+    [Authorize]
     public class CheckedOutMoviesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -37,12 +40,19 @@ namespace MovieLab24.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserID,MovieID,DueDate")] CheckedOutMovies comovies)
+        public async Task<IActionResult> Create(int? id)
         {
+            var comovies = new CheckedOutMovies();
             if (ModelState.IsValid)
             {
-                _context.Add(comovies);
+                comovies.DueDate = DateTime.Today.AddDays(14);
+                ViewData["DueDate"] = comovies.DueDate;
+                comovies.UserID = HttpContext.User.Identity.Name;
+                comovies.MovieID = (int)id;
+                //ApplicationUser currentUser = _context.Users.FirstOrDefault(x => x.Id == User.Identity.GetUserId());
+                _context.CheckedOutMovies.Add(comovies);
                 await _context.SaveChangesAsync();
+               
                 return RedirectToAction(nameof(Result));
             }
             return View(comovies);

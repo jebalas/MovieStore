@@ -20,24 +20,16 @@ namespace MovieLab24.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-             builder.Entity<CheckedOutMovies>(c =>
-             {
-                  c.HasKey(k => k.Id);
-             });
+           
 
             builder.Entity<Movies>(a =>
             {
                 a.HasKey(k => k.Id);
-            });
-            builder.Entity<Movies>().Property(a =>
-
-                a.Title).HasMaxLength(50);
-            builder.Entity<Movies>().Property(a =>
-
-               a.Genre).HasMaxLength(20);
-
-
-            builder.Entity<Movies>().HasData(
+                a.Property(a => a.Title).HasMaxLength(50);
+            
+                a.Property(a =>a.Genre).HasMaxLength(20);
+            
+            a.HasData(
                new Movies { Id = 1, Title = "Borat", Genre = "Comedy", Year = "2006", Actors = "Sacha Baron Cohen", Directors = "Larry Charles", Runtime = 84 },
                new Movies { Id = 3, Title = "Monty Python and the Holy Grail", Genre = "Comedy", Year = "1975", Actors = "John Cleese", Directors = "Terry Gilliam, Terry Jones", Runtime = 92 },
                new Movies { Id = 4, Title = "Legally Blonde", Genre = "Comedy", Year = "2001", Actors = "Reese Witherspoon", Directors = "Robert Luketic", Runtime = 96 },
@@ -54,6 +46,14 @@ namespace MovieLab24.Data
                new Movies { Id = 2, Title = "V for Vendetta", Genre = "SciFi", Year = "2006", Actors = "Natalie Portman, Hugo Weaving", Directors = "James McTeigue", Runtime = 133 },
                new Movies { Id = 5, Title = "Soylent Green", Genre = "SciFi", Year = "1973", Actors = "Charlton Heston", Directors = "Richard Fleischer", Runtime = 97 }
                );
+
+
+             });
+
+            builder.Entity<CheckedOutMovies>(c =>
+            {
+                c.HasKey(k => k.Id);
+            });
 
             base.OnModelCreating(builder);
         }

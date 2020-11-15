@@ -48,7 +48,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="CheckOut" asp-route-id="@Model.Id">Checkout</a> |
-    <a asp-action="ListMovies">Back to Movie List</a> |
+    <p>Would you like to check out this movie?</p>
+    <a asp-controller="CheckedOutMovies" asp-action="Create" asp-route-id="@Model.Id">YES</a> |
+    <a asp-controller="Movies" asp-action="ListMovies">NO</a>
     <a asp-action="Index">Back to Menu</a>
 </div>
